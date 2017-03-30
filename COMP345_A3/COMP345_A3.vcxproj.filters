@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="ActionPhase.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="City.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="Colour.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawPhase.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="InfectPhase.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="LoggerDecorator.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="MapView.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="Observable.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerLogger.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="StreamLogger.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnController.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnLogger.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnPhase.h">
+      <Filter>header</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ActionPhase.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="City.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Colour.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawPhase.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="InfectPhase.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Logger.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="LoggerDecorator.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="MapView.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Observable.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Pandemic.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerLogger.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="StreamLogger.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="TurnController.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="TurnLogger.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="TurnPhase.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="earth.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="header">
+      <UniqueIdentifier>{8264fb6b-1e2c-48d4-a4d4-b50acc690ef1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{ecb31557-a07f-4566-9700-de8dd15cb953}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
