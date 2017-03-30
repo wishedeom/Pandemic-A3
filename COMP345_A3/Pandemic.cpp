@@ -16,27 +16,40 @@
 #include "City.h"
 #include "Map.h"
 #include "MapView.h"
+#include "TurnController.h"
+#include "TurnLogger.h"
+#include "PlayerLogger.h"
+#include "StreamLogger.h"
 
 Map readMapFromFile(const std::string& fileName);
 
 //	----    Program entry point    ----  //
 void main()
 {
-	// Title display
-	std::cout << "    --------    O B S E R V E R   P A T T E R N    --------\n\n\n";
+	TurnController tc { { "Wishe", "Jonny", "Edip", "Kechun" } };
+	std::fstream fs { "log.txt" };
+	StreamLogger l { tc, fs };
+	TurnLogger tl { l };
+	PlayerLogger pl { tl, "Wishe" };
+	tc.subscribe(pl);
 
-	// Setup - Construct sample map from file
-	auto map = readMapFromFile("earth.map");
+	tc.playTurns(10);
 
-	// Construct MapView
-	MapView mapView { &map };
+	//// Title display
+	//std::cout << "    --------    O B S E R V E R   P A T T E R N    --------\n\n\n";
 
-	// Add a city to show off my fancy MapView
-	auto milwaukee = std::make_unique<City>("Milwaukee", Colour::Yellow);
-	milwaukee->connectTo(map.city("London"));
-	map.addCity(std::move(milwaukee));
+	//// Setup - Construct sample map from file
+	//auto map = readMapFromFile("earth.map");
 
-	std::cout << std::endl;
+	//// Construct MapView
+	//MapView mapView { &map };
+
+	//// Add a city to show off my fancy MapView
+	//auto milwaukee = std::make_unique<City>("Milwaukee", Colour::Yellow);
+	//milwaukee->connectTo(map.city("London"));
+	//map.addCity(std::move(milwaukee));
+
+	//std::cout << std::endl;
 }
 
 Map readMapFromFile(const std::string& fileName)
