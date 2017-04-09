@@ -22,7 +22,7 @@ TurnController::TurnController(const std::vector<std::string>& playerNames)
 		std::cout << "\t" << phase->name() << "\n";
 	}
 
-	std::cout << "Starting game...\n";
+	std::cout << "Starting game...\n\n";
 }
 
 size_t TurnController::turn() const
@@ -46,11 +46,9 @@ void TurnController::nextPlayer()
 	if (_currentPlayer >= _playerNames.size())
 	{
 		++_turnNumber;
-		//std::cout << "Turn #" << _turnNumber << "\n";
 		_currentPlayer = 0;
 	}
 	notify();
-	//std::cout << player() << "'s turn.\n";
 }
 
 void TurnController::nextPhase()
@@ -62,7 +60,6 @@ void TurnController::nextPhase()
 		nextPlayer();
 	}
 	notify();
-	//std::cout << phase().name() << "\n";
 }
 
 void TurnController::playTurns(const size_t count)
@@ -72,4 +69,5 @@ void TurnController::playTurns(const size_t count)
 	{
 		nextPhase();
 	}
+	std::cout << "\nGame over! You win!\n\n";
 }
