@@ -19,6 +19,7 @@
 #include "TurnLogger.h"
 #include "PlayerLogger.h"
 #include "StreamLogger.h"
+#include "PhaseLogger.h"
 
 Map readMapFromFile(const std::string& fileName);
 
@@ -28,13 +29,17 @@ void main()
 	TurnController turnController( { "Wishe", "Jonny", "Edip", "Kechun" } );
 	std::ofstream fileStream("log.txt");
 	auto logger =
-		std::make_unique<PlayerLogger>
+		std::make_unique<PhaseLogger>
 		(
-			std::make_unique<TurnLogger>
+			std::make_unique<PlayerLogger>
 			(
-				std::make_unique<StreamLogger>(turnController, fileStream)
-			),
-			"Wishe"
+				std::make_unique<TurnLogger>
+				(
+					std::make_unique<StreamLogger>(turnController, fileStream)
+				),
+				"Wishe"
+			)
+			, "Action Phase"
 		);
 	turnController.subscribe(*logger.get());
 

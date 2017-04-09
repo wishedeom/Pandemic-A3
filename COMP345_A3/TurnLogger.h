@@ -13,4 +13,3 @@ public:
 private:
 	size_t _lastTurn;
 };
-
