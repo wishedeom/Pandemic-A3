@@ -3,11 +3,11 @@
 // Authored by Michael Deom - 29549641
 // Submitted 17/03/2017
 //
-// Assignment 2 for the course COMP 345 - Advanced Program Design with C++
+// Assignment 3 for the course COMP 345 - Advanced Program Design with C++
 // with Prof. Nora Houari at Concordia University.
 //
 // An implementation of the board game "Pandemic" by Z-Man Games.
-// Added MapView observer.
+// Added loggers using Observer and Decorator design patterns.
 
 //  ----    Inclusions    ----
 #include <iostream>
@@ -15,7 +15,6 @@
 
 #include "City.h"
 #include "Map.h"
-#include "MapView.h"
 #include "TurnController.h"
 #include "TurnLogger.h"
 #include "PlayerLogger.h"
@@ -34,22 +33,6 @@ void main()
 	tc.subscribe(pl);
 
 	tc.playTurns(10);
-
-	//// Title display
-	//std::cout << "    --------    O B S E R V E R   P A T T E R N    --------\n\n\n";
-
-	//// Setup - Construct sample map from file
-	//auto map = readMapFromFile("earth.map");
-
-	//// Construct MapView
-	//MapView mapView { &map };
-
-	//// Add a city to show off my fancy MapView
-	//auto milwaukee = std::make_unique<City>("Milwaukee", Colour::Yellow);
-	//milwaukee->connectTo(map.city("London"));
-	//map.addCity(std::move(milwaukee));
-
-	//std::cout << std::endl;
 }
 
 Map readMapFromFile(const std::string& fileName)
