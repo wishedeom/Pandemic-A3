@@ -25,12 +25,18 @@ Map readMapFromFile(const std::string& fileName);
 //	----    Program entry point    ----  //
 void main()
 {
-	TurnController tc { { "Wishe", "Jonny", "Edip", "Kechun" } };
-	std::ofstream fs { "log.txt" };
-	StreamLogger l { tc, fs };
-	TurnLogger tl { l };
-	PlayerLogger pl { tl, "Wishe" };
-	tc.subscribe(pl);
+	TurnController tc( { "Wishe", "Jonny", "Edip", "Kechun" } );
+	std::ofstream fs("log.txt");
+	auto logger =
+		std::make_unique<PlayerLogger>
+		(
+			std::make_unique<TurnLogger>
+			(
+				std::make_unique<StreamLogger>(tc, fs)
+			),
+			"Wishe"
+		);
+	tc.subscribe(*logger.get());
 
 	tc.playTurns(10);
 }

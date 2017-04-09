@@ -6,7 +6,7 @@ class TurnLogger :
 	public LoggerDecorator
 {
 public:
-	TurnLogger(Logger& inner);
+	TurnLogger(std::unique_ptr<Logger> inner);
 	virtual ~TurnLogger();
 	virtual void update() override;
 

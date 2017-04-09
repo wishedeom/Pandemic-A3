@@ -1,7 +1,7 @@
 #include "PlayerLogger.h"
 
-PlayerLogger::PlayerLogger(Logger& inner, const std::string& playerName)
-	: LoggerDecorator { inner }
+PlayerLogger::PlayerLogger(std::unique_ptr<Logger> inner, const std::string& playerName)
+	: LoggerDecorator { std::move(inner) }
 	, _targetName { playerName }
 {}
 
@@ -9,7 +9,7 @@ PlayerLogger::~PlayerLogger() {}
 
 void PlayerLogger::update()
 {
-	_inner.update();
+	_inner->update();
 	const auto& currentPlayer = subject().player();
 	if (_lastPlayer == currentPlayer)
 	{
