@@ -26,9 +26,12 @@ Map readMapFromFile(const std::string& fileName);
 //	----    Program entry point    ----  //
 void main()
 {
+	// To simulate gameplay
 	TurnController turnController( { "Wishe", "Jonny", "Edip", "Kechun" } );
+
+	// Create one logger to track player Wishe and action phases, putting out to a text file
 	std::ofstream fileStream("log.txt");
-	auto logger =
+	auto logger1 =
 		std::make_unique<PhaseLogger>
 		(
 			std::make_unique<PlayerLogger>
@@ -41,8 +44,27 @@ void main()
 			)
 			, "Action Phase"
 		);
-	turnController.subscribe(*logger.get());
 
+	// Create another logger to track player Edip and draw phases, putting out to the terminal
+	auto logger2 =
+		std::make_unique<PhaseLogger>
+		(
+			std::make_unique<PlayerLogger>
+			(
+				std::make_unique<TurnLogger>
+				(
+					std::make_unique<StreamLogger>(turnController, std::cout)
+					),
+				"Edip"
+				)
+			, "Draw Phase"
+			);
+
+	// Subscribe loggers
+	turnController.subscribe(*logger1.get());
+	turnController.subscribe(*logger2.get());
+
+	// Play the game
 	turnController.playTurns(10);
 }
 
