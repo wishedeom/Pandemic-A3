@@ -11,6 +11,7 @@ public:
 	virtual void update() override;
 
 private:
-	std::string _playerName;
+	std::string _targetName;
+	std::string _lastPlayer;
 };
 

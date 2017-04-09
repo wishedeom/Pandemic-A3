@@ -27,7 +27,7 @@ Map readMapFromFile(const std::string& fileName);
 void main()
 {
 	TurnController tc { { "Wishe", "Jonny", "Edip", "Kechun" } };
-	std::fstream fs { "log.txt" };
+	std::ofstream fs { "log.txt" };
 	StreamLogger l { tc, fs };
 	TurnLogger tl { l };
 	PlayerLogger pl { tl, "Wishe" };

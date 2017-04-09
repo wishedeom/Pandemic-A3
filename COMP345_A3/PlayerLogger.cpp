@@ -2,7 +2,7 @@
 
 PlayerLogger::PlayerLogger(Logger& inner, const std::string& playerName)
 	: LoggerDecorator { inner }
-	, _playerName { playerName }
+	, _targetName { playerName }
 {}
 
 PlayerLogger::~PlayerLogger() {}
@@ -10,8 +10,14 @@ PlayerLogger::~PlayerLogger() {}
 void PlayerLogger::update()
 {
 	_inner.update();
-	if (subject().player() == _playerName)
+	const auto& currentPlayer = subject().player();
+	if (_lastPlayer == currentPlayer)
 	{
-		log(_playerName + "'s turn...\n");
+		return;
+	}
+	_lastPlayer = currentPlayer;
+	if (currentPlayer == _targetName)
+	{
+		log(_targetName + "'s turn...\n");
 	}
 }
